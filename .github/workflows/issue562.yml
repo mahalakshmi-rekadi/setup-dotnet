@@ -12,6 +12,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore PowerThreadPool/PowerThreadPool.csproj
+      run: dotnet restore __tests__/test.csproj
     - name: Build
-      run: dotnet build PowerThreadPool/PowerThreadPool.csproj --no-restore
+      run: dotnet build __tests__/test.csproj --no-restore
