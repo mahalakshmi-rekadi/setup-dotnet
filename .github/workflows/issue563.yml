@@ -5,7 +5,7 @@ on:
 
 jobs:
   test-dotnet:
-    runs-on: windows_latest
+    runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
