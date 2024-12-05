@@ -1,0 +1,16 @@
+name: Test .NET 9 with global-json-file
+
+on:
+  workflow_dispatch
+
+jobs:
+  test-dotnet:
+    runs-on: windows_latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET Core with global-json-file
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json  
