@@ -1,0 +1,32 @@
+name: . Lint
+
+'on':
+  workflow_call:
+
+jobs:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Set up NuGet
+        uses: nuget/setup-nuget@v2.0.1
+        with:
+          # https://www.nuget.org/packages/NuGet.Versioning#versions-body-tab
+          nuget-version: 6.12.1
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4.1.0
+        with:
+           global-json-file: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge/global.json
+      - name: Install dependencies
+        working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
+        run: |
+          nuget restore VeriStandZeroMQBridge.sln
+          dotnet tool restore
+      - name: Lint C# (format)
+        working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
+        run: |
+          dotnet format VeriStandZeroMQBridge.sln --verify-no-changes 
+      - name: Lint C# (CSharpier)
+        working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
+        run: |
+          dotnet csharpier --check .
