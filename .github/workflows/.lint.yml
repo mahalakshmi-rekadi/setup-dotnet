@@ -4,6 +4,7 @@ name: . Lint
   workflow_call:
 
 jobs:
+  test-dotnet:
     runs-on: windows-2022
     steps:
       - name: Checkout
