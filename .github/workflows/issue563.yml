@@ -1,7 +1,6 @@
 name: Test .NET 9 with global-json-file
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   test-dotnet:
