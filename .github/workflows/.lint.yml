@@ -6,8 +6,6 @@ name: . Lint
 jobs:
   test-dotnet:
     runs-on: windows-2022
-    env:
-      DOTNET_ROOT: C:\Program Files\dotnet
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
