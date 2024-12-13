@@ -27,6 +27,8 @@ jobs:
         run: |
           nuget restore VeriStandZeroMQBridge.sln
           dotnet tool restore
+      - name: Run .NET command
+        run: dotnet build --verbosity diagnostic
       - name: Lint C# (format)
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
