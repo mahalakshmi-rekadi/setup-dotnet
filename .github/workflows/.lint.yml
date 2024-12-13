@@ -14,10 +14,14 @@ jobs:
         with:
           # https://www.nuget.org/packages/NuGet.Versioning#versions-body-tab
           nuget-version: 6.12.1
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4.1.0
+      - uses: actions/setup-dotnet@v4
         with:
-          global-json-file: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge/global.json
+            dotnet-version: '8.0.404'
+            dotnet-quality: 'ga'
+        env:
+            DOTNET_INSTALL_DIR: ${{ runner.temp }}/.dotnet
+            DOTNET_ROOT: ${{ runner.temp }}/.dotnet
+    
       - name: Install dependencies
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
