@@ -16,7 +16,7 @@ jobs:
           nuget-version: 6.12.1
       - uses: actions/setup-dotnet@v4
         with:
-            dotnet-version: '8.0.404'
+            dotnet-version: '8.0.x'
             dotnet-quality: 'ga'
         env:
             DOTNET_INSTALL_DIR: ${{ runner.temp }}/.dotnet
@@ -30,7 +30,7 @@ jobs:
       - name: Lint C# (format)
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
-          dotnet format VeriStandZeroMQBridge.sln
+          dotnet format VeriStandZeroMQBridge.sln 
       - name: Lint C# (CSharpier)
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
