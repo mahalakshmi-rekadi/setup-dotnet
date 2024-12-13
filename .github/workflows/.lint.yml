@@ -30,7 +30,7 @@ jobs:
       - name: Lint C# (format)
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
-          dotnet-format whitespace --verify-no-changes --verbosity detailed VeriStandZeroMQBridge.sln 
+          dotnet-format VeriStandZeroMQBridge.sln --verify-no-changes --verbosity diagnostic
       - name: Lint C# (CSharpier)
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
