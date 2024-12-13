@@ -15,13 +15,11 @@ jobs:
           # https://www.nuget.org/packages/NuGet.Versioning#versions-body-tab
           nuget-version: 6.12.1
       - uses: actions/setup-dotnet@v4
-        with:
-            dotnet-version: '8.0.x'
-            dotnet-quality: 'ga'
         env:
             DOTNET_INSTALL_DIR: ${{ runner.temp }}/.dotnet
             DOTNET_ROOT: ${{ runner.temp }}/.dotnet
-    
+        with:
+           global-json-file: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge/global.json
       - name: Install dependencies
         working-directory: hardware-in-the-loop/national-instruments/veristand/VeriStandZeroMQBridge
         run: |
